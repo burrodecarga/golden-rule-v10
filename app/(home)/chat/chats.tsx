@@ -1,7 +1,7 @@
 import Button from "@/components/Button"
 import { supabase } from "@/lib/supabase"
 import { fetchMessages, Message, Messages } from "@/lib/usuarios/api_usuarios"
-import { useAuthInfo } from "@/provider/AuthProvider"
+import { useUserInfo } from "@/provider/UserProvider"
 import { router, useLocalSearchParams } from "expo-router"
 import { useCallback, useEffect, useState } from "react"
 import { Alert, StyleSheet } from "react-native"
@@ -11,7 +11,7 @@ export default function ChatScreen() {
     const { contactId, username }=useLocalSearchParams()
 
     const [messages, setMessages]=useState<Messages>([])
-    const { profile: user }=useAuthInfo()
+    const { profile: user }=useUserInfo()
 
     useEffect(() => {
         if (!user) return

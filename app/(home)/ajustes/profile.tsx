@@ -2,7 +2,7 @@ import Button from "@/components/Button"
 import Loading from "@/components/Loading"
 import ProfileForm from "@/components/usuarios/ProfileForm"
 import { Profile } from "@/lib/usuarios/api_usuarios"
-import { useAuthInfo } from "@/provider/AuthProvider"
+import { useUserInfo } from "@/provider/UserProvider"
 import { router, useLocalSearchParams } from "expo-router"
 import { useState } from "react"
 import { View } from "react-native"
@@ -15,7 +15,7 @@ export default function ProfileScreen() {
 
 	//const { data, error, isLoading }=useProfilesById(id as string)
 
-	const { profile, loading }=useAuthInfo()
+	const { profile, loading }=useUserInfo()
 
 
 	// const saveProfileExt=async (

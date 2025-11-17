@@ -1,13 +1,13 @@
 import ContactItem from "@/components/usuarios/ContactItem"
 import { Contact, Contacts, fetchContacts } from "@/lib/usuarios/api_usuarios"
-import { useAuthInfo } from "@/provider/AuthProvider"
+import { useUserInfo } from "@/provider/UserProvider"
 import { router } from "expo-router"
 import { useEffect, useState } from "react"
 import { FlatList, StyleSheet } from "react-native"
 
 export const IndexScreen=() => {
     const [contacts, setContacts]=useState<Contacts>([])
-    const { profile }=useAuthInfo()
+    const { profile }=useUserInfo()
 
     useEffect(() => {
         if (profile) fetchContacts(profile.id).then(setContacts)

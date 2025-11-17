@@ -1,11 +1,11 @@
 import { useThemeColor } from '@/hooks/use-theme-color'
-import { useAuthInfo } from '@/provider/AuthProvider'
+import { useUserInfo } from '@/provider/UserProvider'
 import { router } from 'expo-router'
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 
 const AjustesIndex=() => {
-    const { isAdmin }=useAuthInfo()
+    const { isAdmin }=useUserInfo()
     const primary=useThemeColor({}, 'primary')
 
 

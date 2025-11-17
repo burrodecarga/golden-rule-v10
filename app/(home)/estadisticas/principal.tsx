@@ -4,14 +4,14 @@ import { ThemedText } from "@/components/ThemedText"
 import { semanaDeAno } from "@/constants/constantes"
 import { useThemeColor } from "@/hooks/use-theme-color"
 import { useServicios } from "@/hooks/useServicios"
-import { useAuthInfo } from "@/provider/AuthProvider"
+import { useUserInfo } from "@/provider/UserProvider"
 import { SEMANAS } from "@/utils/date-utils"
 import { Redirect, router } from "expo-router"
 import React, { useState } from "react"
 import { Alert, FlatList, Text, TouchableOpacity, View } from "react-native"
 
 const SemanasPublicScreen=() => {
-    const { role, session, profile }=useAuthInfo()
+    const { role, session, profile }=useUserInfo()
     const primary=useThemeColor({}, 'primary')
 
     const {

@@ -1,9 +1,9 @@
-import { useAuthInfo } from '@/provider/AuthProvider'
+import { useUserInfo } from '@/provider/UserProvider'
 import { Stack } from 'expo-router'
 import React from 'react'
 
 const AjustesLayout=() => {
-    const { isAdmin }=useAuthInfo()
+    const { isAdmin }=useUserInfo()
 
 
     return (
