@@ -1,4 +1,4 @@
-import { Paleta } from '@/constants/Colors'
+import { Paleta } from '@/constants/theme'
 import { formatDate } from '@/utils/date-utils'
 import { Ionicons } from '@expo/vector-icons'
 import { router } from 'expo-router'
@@ -17,7 +17,7 @@ export interface GastoItemProps {
 }
 const GastoItem=({ item }: GastoItemProps) => {
     return (
-        <TouchableOpacity style={styles.container} onLongPress={() => { router.replace(`/servicios/${item.id}`) }}>
+        <TouchableOpacity style={styles.container} onLongPress={() => { router.replace({ pathname: '/(home)/servicios', params: { id: item.id } }) }}>
             <View style={{ flexDirection: 'column', justifyContent: 'space-between', alignItems: 'flex-start', alignContent: 'center', gap: 5 }}>
                 <Text style={{ fontSize: 12 }}>Fecha</Text>
                 <Text style={{ fontSize: 10, }}><Ionicons name='calendar-number-outline' size={14} /> {item.fecha&&formatDate(item.fecha as string)}</Text>

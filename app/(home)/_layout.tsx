@@ -2,15 +2,18 @@ import { Tabs } from 'expo-router'
 import React from 'react'
 
 import { HapticTab } from '@/components/haptic-tab'
+import LogoutIconButton from '@/components/LogoutIconButton'
 import Back from '@/components/tareas/BackTareas'
+import ProfileIconButton from '@/components/usuarios/ProfileIconButton'
 import { Colors } from '@/constants/theme'
 import { useColorScheme } from '@/hooks/use-color-scheme'
-import { useAuthInfo } from '@/provider/AuthProvider'
+import { useUserInfo } from '@/provider/UserProvider'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { View } from 'react-native'
 
 export default function TabHomeLayout() {
   const colorScheme=useColorScheme()
-  const { isAdmin }=useAuthInfo()
+  const { isAdmin }=useUserInfo()
 
   return (
     <Tabs
@@ -18,9 +21,9 @@ export default function TabHomeLayout() {
         tabBarActiveTintColor: Colors[colorScheme??'light'].tint,
         headerShown: true,
         tabBarButton: HapticTab,
-        // headerTitleAlign: 'center',
-        // headerRight: () => <LogoutIconButton />,
-        // headerLeft: () => <View style={{ marginLeft: 20 }}><ProfileIconButton /></View>,
+        headerTitleAlign: 'center',
+        headerRight: () => <LogoutIconButton />,
+        headerLeft: () => <View style={{ marginLeft: 20 }}><ProfileIconButton /></View>,
       }}>
       <Tabs.Protected guard={true}>
         <Tabs.Screen

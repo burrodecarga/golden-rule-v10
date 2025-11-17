@@ -53,14 +53,11 @@ const ProfileForm=({ profile, loading, setLoading }: ProfileFormProps) => {
         updatedProfile: Profile,
         avatarUpdated: boolean
     ) => {
-        console.log('entrando', updatedProfile)
-
-
-
-        console.log('MECATRON', updatedProfile.avatar_url, avatarUpdated)
+        //console.log('entrando', updatedProfile)
+        //console.log('MECATRON', updatedProfile.avatar_url, avatarUpdated)
 
         if (updatedProfile.avatar_url&&avatarUpdated) {
-            console.log('actualizando avatar')
+            //console.log('actualizando avatar')
             const { avatar_url }=updatedProfile
 
             const fileExt=avatar_url.split(".").pop()
@@ -82,7 +79,7 @@ const ProfileForm=({ profile, loading, setLoading }: ProfileFormProps) => {
             updatedProfile.avatar_url=filePath
         }
 
-        console.log('ACTUALIZADO AVATAR XX')
+        //console.log('ACTUALIZADO AVATAR XX')
         //setLoading(true)
 
         const { error }=await supabase
@@ -94,16 +91,16 @@ const ProfileForm=({ profile, loading, setLoading }: ProfileFormProps) => {
         if (error) {
             console.log('ERROR', error)
         } else {
-            console.log("PROFILE SAVED")
+            //console.log("PROFILE SAVED")
             Alert.alert("Profile saved", 'profile save')
         }
-        console.log('FIN')
+        //console.log('FIN')
         //setLoading(false)
     }
 
     const handleSubmit=() => {
-        console.log('saliendo')
-        saveProfile({ ...profile, username: form.username, first_name: form.first_name, last_name: form.last_name, birthday: form.birthday, avatar_url: avatarUrl }, avatarUpdated)
+        //console.log('saliendo')
+        saveProfile({ ...profile, username: form.username, first_name: form.first_name, last_name: form.last_name, birthday: form.birthday, phone: form.phone, avatar_url: avatarUrl }, avatarUpdated)
     }
 
     useEffect(() => {

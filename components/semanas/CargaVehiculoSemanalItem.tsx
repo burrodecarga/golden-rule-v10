@@ -1,10 +1,10 @@
-import { Paleta } from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
 import { router } from 'expo-router'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Button from '../Button'
 import { ResumenVehiculosProps } from './ResumenSemanalVehiculos'
+import { Paleta } from '@/constants/theme'
 
 interface CargaItemProps {
     item: ResumenVehiculosProps

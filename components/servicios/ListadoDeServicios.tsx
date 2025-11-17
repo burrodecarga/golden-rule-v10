@@ -1,5 +1,5 @@
-import { primary } from '@/constants/Colors'
 import { ESTATUS_SERVICIO } from '@/constants/constantes'
+import { useThemeColor } from '@/hooks/use-theme-color'
 import { APIServicioRow } from '@/lib/servicios/api_servicios'
 import React from 'react'
 import { Text, View } from 'react-native'
@@ -15,6 +15,7 @@ export interface CargaItemProps {
 }
 
 const ListadoDeServicios=({ items, ver }: CargaItemProps) => {
+    const primary=useThemeColor({}, 'primary')
 
     if (items.position!==ver) {
         return null

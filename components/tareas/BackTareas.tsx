@@ -7,7 +7,7 @@ import { TouchableOpacity } from 'react-native'
 const BackRareas=() => {
     const primary=useThemeColor({}, 'primary')
     return (
-        <TouchableOpacity onPress={() => router.push('/_sitemap')} style={{ marginHorizontal: 30 }}>
+        <TouchableOpacity onPress={() => router.push('/(home)/inicio')} style={{ marginHorizontal: 30 }}>
             <Ionicons name='chevron-back-circle-outline' size={28} color={primary} />
         </TouchableOpacity>
     )

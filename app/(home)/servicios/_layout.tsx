@@ -1,10 +1,10 @@
 import { Stack } from 'expo-router'
 import React from 'react'
 
-const AjustesLayout=() => {
+const ServiciosLayout=() => {
     return (
-        <Stack />
+        <Stack screenOptions={{ headerShown: false }} />
     )
 }
 
-export default AjustesLayout
+export default ServiciosLayout

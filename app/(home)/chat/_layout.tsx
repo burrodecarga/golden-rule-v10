@@ -1,10 +1,13 @@
+import { useAuthInfo } from '@/provider/AuthProvider'
 import { Stack } from 'expo-router'
 import React from 'react'
 
-const AjustesLayout=() => {
+const ChatLayout=() => {
+    const { profile }=useAuthInfo()
+
     return (
-        <Stack />
+        <Stack initialRouteName='index' screenOptions={{ headerShown: true, title: profile?.username! }} />
     )
 }
 
-export default AjustesLayout
+export default ChatLayout

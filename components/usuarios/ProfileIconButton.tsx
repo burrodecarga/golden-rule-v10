@@ -7,7 +7,7 @@ const ProfileIconButton=() => {
   const primary=useThemeColor({}, 'primary')
 
   return (
-    <TouchableOpacity style={{ marginRight: 20 }} onPress={() => router.push('/_sitemap')}>
+    <TouchableOpacity style={{ marginRight: 20 }} onPress={() => router.push('/(home)/ajustes')}>
       <Ionicons name="person-circle-outline" size={28} color={primary} />
     </TouchableOpacity>
   )

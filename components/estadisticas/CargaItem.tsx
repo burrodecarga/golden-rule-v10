@@ -1,4 +1,4 @@
-import { Paleta } from '@/constants/Colors'
+import { Paleta } from '@/constants/theme'
 import { formatDate } from '@/utils/date-utils'
 import { Ionicons } from '@expo/vector-icons'
 import React from 'react'

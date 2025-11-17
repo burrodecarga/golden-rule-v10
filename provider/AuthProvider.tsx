@@ -5,24 +5,24 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 
 type AuthData={
     loading: boolean,
-    isAdmin: boolean,
-    session: Session|null
+    session: Session|null,
 }
 
 const AuthContex=createContext<AuthData>({
     loading: true,
-    isAdmin: false,
-    session: null
+    session: null,
+
 })
 
 interface Props {
     children: React.ReactNode
 }
 
+
 export default function AuthProvider(props: Props) {
     const [loading, setLoading]=useState<boolean>(true)
-    const [isAdmin, setIsAdmin]=useState(false)
     const [session, setSession]=useState<Session|null>(null)
+
 
     useEffect(() => {
         async function getSession() {
@@ -32,12 +32,11 @@ export default function AuthProvider(props: Props) {
             } else {
                 if (data.session) {
                     setSession(data.session)
-                    setIsAdmin(true)
+                    router.replace('/(home)/inicio')
                 } else {
                     router.replace('/(auth)/login')
                 }
             }
-            //console.log('SESION', session)
             setLoading(false)
         }
         getSession()
@@ -45,7 +44,7 @@ export default function AuthProvider(props: Props) {
             setSession(session)
             setLoading(false)
             if (session) {
-                router.replace('/(tabs)')
+                router.replace('/(home)/inicio')
             } else {
                 router.replace('/(auth)/login')
             }
@@ -56,8 +55,10 @@ export default function AuthProvider(props: Props) {
         })
     }, [])
 
+
+
     return (
-        <AuthContex.Provider value={{ loading, isAdmin, session }}>
+        <AuthContex.Provider value={{ loading, session }}>
             {props.children}
         </AuthContex.Provider>
     )

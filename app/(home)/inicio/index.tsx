@@ -1,3 +1,4 @@
+import { FAB } from "@/components/FAB"
 import Loading from "@/components/Loading"
 import DetalleCalendario from "@/components/servicios/DetalleCalendario"
 import { ThemedText } from "@/components/themed-text"
@@ -10,8 +11,8 @@ import {
     APIServicios,
     GetAllServicios
 } from "@/lib/servicios/api_servicios"
-import { useUserInfo } from "@/lib/userContext"
-import { useAuthInfo } from "@/provider/AuthProvider"
+import { useUserInfo } from "@/provider/UserProvider"
+import { router } from "expo-router"
 import React, { useEffect, useState } from "react"
 import {
     Alert,
@@ -24,7 +25,6 @@ import {
 import { Calendar, DateData } from "react-native-calendars"
 
 const InicioIndex=() => {
-    const { profile }=useUserInfo()
     const hoy=new Date()
     const initial=hoy.toISOString().split("T")[0]
     const numSemana=semanaDeAno()+1
@@ -33,11 +33,12 @@ const InicioIndex=() => {
     const [data, setData]=useState<APIServicios|[]>()
     const [loading, setLoading]=useState(false)
     const [renderizar, setRenderizar]=useState(false)
+
     const primary=useThemeColor({}, "primary")
     let filtrados: APIServicios|[]|any=[]
 
-    const isAdmin=useAuthInfo()
-
+    const { role, userId, isAdmin }=useUserInfo()
+    console.log(role, isAdmin, userId)
     const getServicios=async () => {
         setLoading(true)
 
@@ -63,7 +64,7 @@ const InicioIndex=() => {
         } else {
             filtrados=data?.filter(
                 (s: APIServicioRow) =>
-                    s.fecha_carga===selected&&profile?.id===s.chofer_id
+                    s.fecha_carga===selected&&userId===s.chofer_id
             )
         }
     }
@@ -138,12 +139,12 @@ const InicioIndex=() => {
                 )}
             />
 
-            {/* {isAdmin&&(
+            {isAdmin&&(
                 <FAB
                     iconName='add-circle-outline'
                     onPress={() => router.replace("/(home)/inicio/paso_1")}
                 />
-            )} */}
+            )}
         </View>
     )
 }

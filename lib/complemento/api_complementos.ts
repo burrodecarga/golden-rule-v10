@@ -82,7 +82,7 @@ export const addServicio=async (datos: ServicioNoId) => {
 
         throw error.cause
     } else {
-        console.log("EXITO", data)
+        //console.log("EXITO", data)
         return data
     }
 }
@@ -308,7 +308,7 @@ export const fetchServiciosBySemanaChofer=async (semana: number, chofer: string)
         console.log("error", error)
         return []
     } else {
-        console.log('GANO')
+        //console.log('GANO')
         return data
     }
 }

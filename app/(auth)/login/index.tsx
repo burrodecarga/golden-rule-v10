@@ -38,7 +38,7 @@ const LoginScreen=() => {
         if (data.session) {
             //console.log('DE DATA', data)
             setLoading(false)
-            router.replace('/_sitemap')
+            router.replace('/(home)/inicio')
         }
     }
 
