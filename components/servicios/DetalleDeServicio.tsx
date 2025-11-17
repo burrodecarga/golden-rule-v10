@@ -1,6 +1,6 @@
 import ThemedButton from '@/components/ThemedButton'
 import { ThemedText } from '@/components/ThemedText'
-import { primary } from '@/constants/Colors'
+import { useThemeColor } from '@/hooks/use-theme-color'
 import { APIServicioRow, CargaUpdateItemProps } from '@/lib/servicios/api_servicios'
 import { supabase } from '@/lib/supabase'
 import { formatDate, formatTime } from '@/utils/date-utils'
@@ -26,6 +26,8 @@ const DetalleDeServicio=({ items, ver, fun, setCargando }: CargaItemProps) => {
     const [parametro, setParametro]=useState<CargaUpdateItemProps>()
     const id=items.id
     const precio=String(items.precio_de_servicio)
+
+    const primary=useThemeColor({}, 'primary')
 
     //console.log(items.id, ver, items.position)
 
@@ -171,6 +173,13 @@ const DetalleDeServicio=({ items, ver, fun, setCargando }: CargaItemProps) => {
                 <Button title='POD' onPress={() => router.push({ pathname: "/(home)/servicios", params: { id, doc: 'POD' } })} />
                 <Button title='RC' onPress={() => router.push({ pathname: "/(home)/servicios", params: { id, doc: 'RC' } })} />
             </View>}
+
+
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 10, marginVertical: 20 }}>
+                <Button title='BOL' onPress={() => router.push({ pathname: "/(home)/inicio/(images)/upload", params: { id, doc: 'BOL' } })} />
+                <Button title='POD' onPress={() => router.push({ pathname: "/(home)/inicio/(images)/upload", params: { id, doc: 'POD' } })} />
+                <Button title='RC' onPress={() => router.push({ pathname: "/(home)/inicio/(images)/upload", params: { id, doc: 'RC' } })} />
+            </View>
         </Card>
 
     )

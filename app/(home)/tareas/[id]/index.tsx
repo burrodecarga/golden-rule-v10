@@ -28,7 +28,7 @@ const DetalleDeTareaScreen=() => {
     const servicio=data as APIServicio
 
     const handleButton=(id: string) => {
-        // router.push({ pathname: "/(home)/tareas/gastos/listado_gastos", params: { id } })
+        router.push({ pathname: "/(home)/tareas/gastos/listado_gastos", params: { id } })
     }
 
     const registrarSalida=async (item: APIServicioRow, id: string) => {
@@ -341,6 +341,11 @@ const DetalleDeTareaScreen=() => {
                                 //console.log(foto.url)
                                 return <FotoBtn uri={foto.url} key={foto.id} name="carga" />
                             }))}
+                        </View>
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 10, marginVertical: 20 }}>
+                            <Button title='BOL' onPress={() => router.push({ pathname: "/(home)/inicio/(images)/upload", params: { id, doc: 'BOL' } })} />
+                            <Button title='POD' onPress={() => router.push({ pathname: "/(home)/inicio/(images)/upload", params: { id, doc: 'POD' } })} />
+                            <Button title='RC' onPress={() => router.push({ pathname: "/(home)/inicio/(images)/upload", params: { id, doc: 'RC' } })} />
                         </View>
                     </View>
                     <View style={{ gap: 10 }}>

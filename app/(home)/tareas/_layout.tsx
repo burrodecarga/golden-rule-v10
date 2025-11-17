@@ -3,7 +3,7 @@ import React from 'react'
 
 const TareasLayout=() => {
     return (
-        <Stack screenOptions={{ headerShown: false }} />
+        <Stack screenOptions={{ headerShown: false }} initialRouteName='index' />
 
     )
 }

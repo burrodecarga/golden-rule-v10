@@ -17,7 +17,9 @@ export interface FotoProps1 {
     pathname?: any
 }
 
-const xpath='/(home)/inicio' as RelativePathString
+const xpath='/(home)/inicio/(images)/zoom' as RelativePathString
+//const xpath='/(home)/(admin)/(servicios)/(servicio)/(images)/zoom' as RelativePathString
+
 const imgUri='https://stxsnrianylaldkorlgy.supabase.co/storage/v1/object/public/personal//logo.png'
 
 const FotoBtn=({ uri=imgUri, size=32, name='Reserva', pathname=xpath }: FotoProps1) => {

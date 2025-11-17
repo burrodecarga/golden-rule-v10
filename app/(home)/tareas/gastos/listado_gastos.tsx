@@ -2,18 +2,15 @@ import GastoItem from '@/components/gastos/GastosItem'
 import Loading from '@/components/Loading'
 import MiniLogo from '@/components/MiniLogo'
 import { ThemedText } from '@/components/ThemedText'
-import { useGastos } from '@/hooks/useGastosByServicioId'
-import { APIServicioRow } from '@/lib/servicios/api_servicios'
+import { useGastosByServicioId } from '@/hooks/useGastosByServicioId'
 import { useLocalSearchParams } from 'expo-router'
-import React, { useState } from 'react'
+import React from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 
 const ListadoDeGastosDeTareaScreen=() => {
-    const { data: gastos, isLoading }=useGastos()
     const { id }=useLocalSearchParams()
-    const [renderizar, setRenderizar]=useState(false)
-    const [servicio, setServicio]=useState<APIServicioRow>()
-    const [orden, setOrden]=useState<string|null>('0000')
+    const { data: gastos, isLoading }=useGastosByServicioId(id as string)
+
 
 
 
@@ -33,10 +30,10 @@ const ListadoDeGastosDeTareaScreen=() => {
             <ThemedText type='subtitle' style={{ textAlign: 'center', marginBottom: 0, paddingBottom: 0 }}>Listado de Gastos</ThemedText>
             <View style={{ height: '60%', marginBottom: 0 }}>
                 <FlatList
-                    data={[]}
-                    keyExtractor={item => item!}
+                    data={gastos}
+                    keyExtractor={item => item.id}
                     renderItem={({ item }) => <GastoItem item={item} />}
-                    ListEmptyComponent={() => <View><Text>No hay registros</Text></View>}
+                    ListEmptyComponent={() => <View style={{ padding: 20, flex: 1, backgroundColor: 'red', alignItems: 'center', justifyContent: 'center', margin: 'auto' }}><Text style={{ textAlign: 'center', fontWeight: 'bold' }}>No hay gastos registrados</Text></View>}
 
                 />
             </View>
