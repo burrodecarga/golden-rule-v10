@@ -38,7 +38,7 @@ const InicioIndex=() => {
     let filtrados: APIServicios|[]|any=[]
 
     const { role, userId, isAdmin }=useUserInfo()
-    console.log(role, isAdmin, userId)
+    //console.log(role, isAdmin, userId)
     const getServicios=async () => {
         setLoading(true)
 

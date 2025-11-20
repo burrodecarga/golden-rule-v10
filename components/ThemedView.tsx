@@ -1,24 +1,24 @@
-import { useThemeColor } from '@/hooks/useThemeColor';
-import { View, Text, ViewProps } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useThemeColor } from '@/hooks/use-theme-color'
+import { View, ViewProps } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 interface Props extends ViewProps {
-  className?: string;
-  margin?: boolean;
-  safe?: boolean;
-  bgColor?: string;
+  className?: string
+  margin?: boolean
+  safe?: boolean
+  bgColor?: string
 }
 
-const ThemedView = ({
+const ThemedView=({
   style,
   className,
-  margin = false,
-  safe = false,
+  margin=false,
+  safe=false,
   bgColor,
   children,
 }: Props) => {
-  const backgroundColor = bgColor ?? useThemeColor({}, 'background');
-  const safeArea = useSafeAreaInsets();
+  const backgroundColor=bgColor??useThemeColor({}, 'background')
+  const safeArea=useSafeAreaInsets()
 
   return (
     // className="bg-light-background dark:bg-dark-background"
@@ -27,8 +27,8 @@ const ThemedView = ({
         {
           backgroundColor: backgroundColor,
           flex: 1,
-          paddingTop: safe ? safeArea.top : 0,
-          marginHorizontal: margin ? 10 : 0,
+          paddingTop: safe? safeArea.top:0,
+          marginHorizontal: margin? 10:0,
         },
         style,
       ]}
@@ -36,6 +36,6 @@ const ThemedView = ({
     >
       {children}
     </View>
-  );
-};
-export default ThemedView;
+  )
+}
+export default ThemedView

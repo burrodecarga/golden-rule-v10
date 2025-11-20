@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/icono.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.edwinhenriquezh.goldenrulev10"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "42dd5534-72a2-4f0c-9aee-8a9b557f6d02"
+      }
     }
   }
 }
